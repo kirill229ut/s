@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <a href="Not find book.html">Сайт не шукає книжки? Зв'яжіться з нами</a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пошук Книжок для читання</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        .result button {
+            background-color: #0073e6;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .result button:hover {
+            background-color: #005bb5;
+        }
+    </style>
+    <script>
+        function searchBook() {
+            const bookName = document.getElementById('bookName').value;
+            const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(bookName)}+site:books.google.com`;
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `<a href="${searchUrl}" target="_blank"><button>Знайти "${bookName}" на Google Books</button></a>`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Пошук Книжок</h1>
+    <input type="text" id="bookName" placeholder="Введіть назву книжки">
+    <button onclick="searchBook()">Шукати</button>
+    <div class="result" id="result"></div>
+</body>
+</html>
